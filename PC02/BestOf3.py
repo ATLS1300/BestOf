@@ -1,0 +1,326 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+'''
+Turtle starter code
+ATLS 1300
+Author: Dr. Z
+Author: Lauren Grace Park
+May 29, 2020
+'''
+
+import turtle #import the library of commands that you'd like to use
+
+turtle.colormode(255)
+
+# Create a panel to draw on. 
+panel = turtle.Screen()
+w = 750 # width of panel
+h = 750 # height of panel
+panel.setup(width=w, height=h) #600 x 600 is a decent size to work on. 
+#You can experiment by making it the size of your screen or super tiny!
+
+# Create a colorful background and add Bezos image to it
+image = "Bezos.gif"
+panel.bgcolor("lightsteelblue1")
+panel.bgpic(image)
+
+#=======Add your code here======
+turtle.speed(10)
+
+turtle.up()
+turtle.goto(-60,260)
+turtle.color("Gold1")
+turtle.down()
+turtle.setheading(220)
+turtle.begin_fill()
+
+turtle.circle(50) #Beginning of hat, first circle
+turtle.end_fill()
+
+turtle.up() #Left side of hat beginning
+turtle.goto(-75,240)
+turtle.setheading(245)
+turtle.down()
+turtle.begin_fill()
+turtle.forward(70)
+turtle.setheading(270)
+turtle.forward(30)
+turtle.setheading(360)
+turtle.forward(80)
+turtle.setheading(90)
+turtle.forward(50)
+turtle.end_fill() #second part of hat done
+
+turtle.up()
+turtle.color("Gold1")
+turtle.goto(55,147)
+turtle.down()
+turtle.begin_fill()
+turtle.setheading(180)
+turtle.forward(80)
+turtle.setheading(90)
+turtle.forward(100)
+turtle.setheading(360)
+turtle.forward(35)
+turtle.setheading(295)
+turtle.forward(70)
+turtle.setheading(270)
+turtle.forward(38)
+turtle.setheading(180)
+turtle.forward(75)
+turtle.end_fill() #right side done
+
+turtle.up() #lower crayon first layer
+turtle.goto(-115,-30)
+turtle.down()
+turtle.begin_fill()
+turtle.setheading(360)
+turtle.forward(175)
+turtle.setheading(270)
+turtle.forward(250)
+turtle.setheading(180)
+turtle.forward(175)
+turtle.setheading(90)
+turtle.forward(250)
+turtle.end_fill() #end of lower first layer
+
+turtle.up() #first band
+turtle.goto(-115,-50)
+turtle.color("gray1")
+turtle.down()
+turtle.setheading(360)
+turtle.begin_fill()
+turtle.forward(175)
+turtle.setheading(270)
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(175)
+turtle.setheading(90)
+turtle.forward(25)
+turtle.end_fill() #end of first band
+
+turtle.up() #beginning of second band
+turtle.setheading(270)
+turtle.forward(65)
+turtle.setheading(360)
+turtle.down()
+turtle.begin_fill()
+turtle.forward(175)
+turtle.setheading(270)
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(175)
+turtle.setheading(90)
+turtle.forward(25)
+turtle.end_fill() #end of second band
+
+#START OF CRAYOLA
+turtle.up()
+turtle.forward(65)
+turtle.setheading(360)
+turtle.forward(20)
+turtle.setheading(270)
+turtle.forward(45)
+turtle.setheading(90)
+turtle.forward(25)
+turtle.setheading(270)
+turtle.pensize(3)
+turtle.forward(10)
+turtle.down()
+turtle.forward(5)
+turtle.up()
+turtle.forward(25)
+turtle.down()
+turtle.forward(15)
+turtle.up()
+turtle.setheading(90)
+turtle.forward(60)
+turtle.setheading(270)
+turtle.down()
+turtle.forward(20)
+turtle.up()
+turtle.goto(-115,-50)
+turtle.down()
+turtle.forward(75)
+#C DONE
+
+turtle.up()
+turtle.setheading(360)
+turtle.forward(25)
+turtle.color("goldenrod1")
+turtle.forward(5)
+turtle.setheading(90)
+turtle.down()
+turtle.color("gray1")
+turtle.forward(60)
+turtle.color("goldenrod1")
+turtle.up()
+turtle.setheading(360)
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(10)
+turtle.setheading(270)
+turtle.down()
+turtle.color("gray1")
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(15)
+turtle.setheading(315)
+turtle.forward(40)
+#R
+turtle.up()
+turtle.setheading(360)
+turtle.color("goldenrod1")
+turtle.forward(5)
+turtle.setheading(90)
+turtle.forward(25)
+turtle.setheading(270)
+turtle.forward(25)
+turtle.setheading(90)
+turtle.down()
+turtle.color("gray1")
+turtle.forward(50)
+turtle.setheading(360)
+turtle.forward(10)
+turtle.color("goldenrod1")
+turtle.up()
+turtle.forward(5)
+turtle.setheading(270)
+turtle.down()
+turtle.color("gray1")
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(17)
+turtle.setheading(360)
+turtle.forward(17)
+turtle.setheading(270)
+turtle.forward(35)
+
+turtle.up() #Y 
+turtle.color("goldenrod1")
+turtle.setheading(360)
+turtle.forward(12)
+turtle.setheading(90)
+turtle.down()
+turtle.color("gray1")
+turtle.forward(45)
+turtle.setheading(120)
+turtle.forward(20)
+turtle.setheading(360)
+turtle.forward(15)
+turtle.color("goldenrod1")
+turtle.up()
+turtle.forward(8)
+turtle.setheading(270)
+turtle.forward(10)
+turtle.down()
+turtle.setheading(200)
+turtle.color("gray1")
+turtle.forward(15)
+
+turtle.up()
+turtle.color("goldenrod1")
+turtle.forward(25)
+turtle.setheading(360)
+turtle.forward(25)
+turtle.forward(10)
+turtle.forward(10)
+turtle.forward(5)
+turtle.setheading(90)
+turtle.down()
+turtle.forward(15)
+turtle.color("gray1")
+turtle.forward(10)
+turtle.setheading(270)
+turtle.forward(40)
+turtle.forward(25)
+turtle.setheading(360)
+turtle.forward(15)
+turtle.color("goldenrod1")
+turtle.setheading(90)
+turtle.color("gray1")
+turtle.forward(50)
+turtle.forward(20)
+turtle.setheading(360)
+
+turtle.color("goldenrod1") #L
+turtle.up()
+turtle.forward(10)
+turtle.setheading(270)
+turtle.color("gray1")
+turtle.forward(30)
+turtle.setheading(90)
+turtle.forward(30)
+turtle.setheading(270)
+turtle.down()
+turtle.forward(60)
+turtle.setheading(360)
+turtle.forward(10)
+turtle.setheading(180)
+turtle.forward(10)
+turtle.setheading(90)
+turtle.forward(3)
+turtle.color("goldenrod1")
+turtle.color("gray1")
+turtle.forward(13)
+turtle.setheading(270)
+turtle.forward(12)
+turtle.setheading(360)
+turtle.forward(15)
+
+turtle.up() #A
+turtle.setheading(90)
+turtle.down()
+turtle.forward(50)
+turtle.setheading(360)
+turtle.color("goldenrod1")
+turtle.up()
+turtle.forward(15)
+turtle.forward(3)
+turtle.setheading(270)
+turtle.color("gray1")
+turtle.forward(60)
+turtle.setheading(90)
+turtle.forward(45)
+turtle.setheading(270)
+turtle.forward(10)
+turtle.setheading(180)
+turtle.forward(10)
+turtle.setheading(360)
+turtle.forward(10)
+turtle.setheading(180)
+turtle.down()
+turtle.forward(25)
+#end of shit crayola
+
+#last band
+turtle.up()
+
+turtle.setheading(360)
+
+turtle.forward(25)
+
+turtle.forward(10)
+
+turtle.setheading(270)
+
+turtle.forward(140)
+turtle.setheading(180)
+turtle.forward(15)
+turtle.down()
+turtle.begin_fill()
+turtle.forward(175)
+turtle.setheading(270)
+turtle.forward(25)
+turtle.setheading(360)
+turtle.forward(182)
+turtle.setheading(90)
+turtle.forward(25)
+turtle.setheading(180)
+turtle.forward(5)
+turtle.end_fill()
+
+#=======Clean up code (do not change)======
+# this code ensures that 330your script runs correctly each time.
+#turtle.done()
