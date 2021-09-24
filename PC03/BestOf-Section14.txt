@@ -1,0 +1,56 @@
+Building the Microsoft Logo
+
+Tasks
+- 4 squares
+	- Red
+	- Green
+	- Blue
+	- Yellow
+
+- add 4 squares that are RGB
+
+- import turtle library
+- set color mode
+	- turtle.colormode(255)
+- create a panel
+	- set the color of the panel to white
+	- panel.bgcolor("white")
+
+- create a turtle
+
+- make a turtle for square 1
+	- square1 = turtle.Turtle()
+- change color for square1 to Microsoft Red
+	- square1.color((254,69,38))
+
+- toggle begin fill
+- set pen up
+- go to location of corner of first square
+	- square1.goto(--,--)
+- set pen down
+
+- set for loop
+	- for I in range(-)
+	- square1.forward(--)
+	- square1.right(90)
+
+- toggle end fill
+
+- create square2
+	- square2 = turtle.Turtle()
+
+- change color for square2
+	- square2.color((--,--,--)
+
+- toggle begin fill
+- set pen up
+- move to next position
+	- square2.goto(--,--)
+- set pen down
+	- square2.pendown()
+
+- repeat for loop from square1
+
+- set end fill
+
+- repeat steps for 2 more squares, changing goto location for each new square.
