@@ -1,0 +1,57 @@
+import turtle & math libraries
+set the colormode to 255
+
+set turtle speed to fastest (10)
+pick pen up
+
+# Circle background
+
+define list - circleRadii (the radii of the circles in the background, starting from largest and going to smallest because the circles must be drawn on top of eachother)
+
+define varaible int - greenValue (20) (to create a color gradient, the green value of the RGB will change by the same amount for each new circle)
+define varaible int - x ((255, greenValue, 147))
+
+set turtle pen and fill color to x
+
+for radius in circleRadii:
+	make turtle go to (0, -radius) (the turtle will begin drawing a circle from the bottom so since I want circles with centers that allign with the screen center, the circles will start low enough to ensure this)
+	put pen down
+	begin fill
+	have turtle draw circle with radius
+	end fill
+	pick pen up
+	add 18 to greenValue
+	redefine x with new greenValue (same R and B)
+	set turtle pen and fill color to new x
+
+# Funky spiral
+
+#===Taken from https://canvas.colorado.edu/courses/75648/pages/parametric-patterns (Funky spiral)========#
+define variable int - 24 (this can be changed, but used to calculate X values)
+define variable int - 25 (this can be changed, but used to calculate Y values)
+define variable int - ANGLES (range(-1000,1000)) (how long the design should be drawn. This should be enough to fill screen but may need to be adjusted)
+
+for angle in ANGLES:
+	convert angle from degrees to radians
+	X = angle - 1.6*math.cos(a*angle)
+	Y = angle - 1.6*math.cos(b*angle)
+#===================================================================#
+	x = X*10 (need to scale this value so the design is bigger.) (I'm aware that I could just directly multiply X by 10, but I just wanted to clearly communicate that this is my code again)
+	y = Y*10 (need to scale this value so the design is bigger.) (I'm aware that I could just directly multiply Y by 10, but I just wanted to clearly communicate that this is my code again)
+	turtle.goto(X,Y)
+	put pen down (this is only needed for when the turtle moves from the last circle to the beginning of the spiral, but it's easier to just include it in this for loop)
+
+pick pen up
+
+#===Taken from https://canvas.colorado.edu/courses/75648/pages/parametric-patterns (Funky spiral)========#
+for angle in ANGLES: (this is the exact same as the previous for loop except X will be negative so the spirals will go the other way)
+	convert angle from degrees to radians
+	X = angle - 1.6*math.cos(a*angle)
+	Y = angle - 1.6*math.cos(b*angle)
+#===================================================================#
+	x = X*10 (need to scale this value so the design is bigger.) (I'm aware that I could just directly multiply X by 10, but I just wanted to clearly communicate that this is my code again)
+	y = Y*10 (need to scale this value so the design is bigger.) (I'm aware that I could just directly multiply Y by 10, but I just wanted to clearly communicate that this is my code again)
+	turtle.goto(X,Y)
+	put pen down (this is only needed for when the turtle moves from the last circle to the beginning of the spiral, but it's easier to just include it in this for loop)
+
+turtle.done()
