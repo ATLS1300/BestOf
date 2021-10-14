@@ -1,98 +1,84 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on October 13, 2021
+Created on Mon Oct 11 19:37:34 2021
 
 @author: 
-
-Creates a smiling jack-o-lantern with flashing eyes
+An animation where a pumpkin image is sliding from one edge of the screen to 
+the other three times and then stops. Once it stops a spiderweb will stamp 
+in the middle of the screen.
 """
+# ========================= set up ===========================
+import turtle
 
-import turtle, time
-
-# ================ LIBRARY SETTINGS SETUP =========================
-turtle.colormode(255) # accept 0-255 RGB values
-turtle.tracer(0) # turn off turtle's animation
+turtle.colormode(255)
+turtle.tracer(0) # turns off turtles animation
 
 panel = turtle.Screen()
 w = 700
 h = 500
 panel.setup(width=w, height=h)
-panel.bgcolor("#ff7518")
+panel.bgcolor("black")
 
-# ================ VARIABLE DEFINITION & SETUP =========================
-#define turtle objects, variables, etc. here!
-running = True
+# ================ defining turtles, variables, & images =================
+pumpkin = turtle.Turtle()
+web = turtle.Turtle()
+web.color("white")
 
-circ = turtle.Turtle()
-circ.up()
-circ.goto(-25,-275)
-circ.down()
-circ.pensize(5)
-circ.circle(295)
+step = 1 # increment of image movement
+running = True # while loop conditional
+crosses = 0 # number of times the image hits the right side of the screen
+count = 3 # allow image to hit right side 3 times, when to stop animating
+loc = [(0,-100),(0,-150),(0,-200)]
+size = [100,150,200]
+x = 300
 
-x2 = -150
-y = -100
+# import image and set as turtle
+pumpkinImg = "jackgif.gif"
+panel.addshape(pumpkinImg)
+pumpkin.shape(pumpkinImg) # image is now turtle shape
 
-smile = turtle.Turtle()
-smile.pensize(3)
-smile.up()
-smile.goto(-175,-125)
-smile.down()
-smile.color("#FED85B")
-smile.forward(300)
-smile.right(90)
+pumpkin.up() # not drawing anymore
 
-for blank in range(11): #for loop creates lines in the jack o lantern's smile
-        smile.up()
-        smile.goto(x2,y)
-        smile.down()
-        smile.forward(50)
-        x2 = x2 + 25
-
-x = 175
-
-Tri = turtle.Turtle()
-Tri.up()
-Tri.goto(-175,125)
-Tri.down()
-
-# ================ FUNCTION DEFINITION =========================
-# define your functions here! Use descriptive names and don't forget 
-# a docstring!
-
-def Triangle():
-    '''draws a triangle'''
-    Tri.color("#FED85B")
-    Tri.begin_fill()
-    Tri.forward (50)
-    Tri.left(120)
-    Tri.forward(50)
-    Tri.left(120)
-    Tri.forward(100)
-    Tri.end_fill()
-
-def stampTriangle():
-    '''stamps circle after 3 iterations'''
-    for i in range(3):
-        Triangle()
-
-# ================ ANIMATION LOOP =========================
+# ======================== define function =======================
+def slider():
+    '''makes pumpkin image slide back and forth across screen 3 times then stops'''
+    pumpkin.forward(step) # move image incrementally by step, or 1
+    x=pumpkin.xcor() # get x position of image
+    pumpkin.goto(x,-150)
+    return x # return x variable to use to call function in animation
+        
+# # ========================== animation loop ========================
 while running:
-    Tri.clear()
+    
+    x = slider() #call the function to move the image
+    
+    if x == -300:
+        # hitting the left side of the screen and move right
+        step *= -1
+        
+    elif x == 300:
+        # hits the right side of the screen and moves left
+        step *= -1
+        crosses += 1 # keep track of crosses
+        
+    if count <= crosses: # check for goal number of crosses
+        running = False 
+        
     panel.update()
     
-    stampTriangle()
     
-    Tri.up()
-    Tri.goto(x,125)
-    Tri.down()
-    
-    time.sleep (0.5)
-    
-    x*= -1
-    
-    panel.update()
-    
-# ================ CLEANUP =========================
+for i in range(10): # draws the legs of the spiderweb
+    web.home()
+    web.right(36 * count)
+    web.forward(200)
+    count += 1
+for i in range(3): # draws the circles of the spiderweb
+    web.up()
+    web.home()
+    web.goto(loc[i])
+    web.down()
+    web.circle(size[i])
+        
+# ============================ clean up ==========================
 turtle.done()
